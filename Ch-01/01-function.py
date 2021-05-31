@@ -1,3 +1,6 @@
+# ** packing
+
+
 def function(arg1, arg2, *args, **kwargs):
     print("arg1 : ", arg1)
     print("arg2 : ", arg2)
@@ -12,9 +15,31 @@ def function(arg1, arg2, *args, **kwargs):
 
 function(1, 2, 3, 4, 5, 6, 7, 8, 9, what=False, why=True, Hello="Hello world!")
 
-# ** packing and unpacking
+# ** unpacking
+
+
+t = [1, 2, 3]
+
+print(t)
+print(*t)
+print(1, 2, 3)
+
+
+def func(*arg):
+    print(arg)
+
+
+func(1, 2, 3)
+
+dic = {"a": 12, "b": 14, "c": 13}
+
+dic2 = {"d": 15, **dic}
+
+print(dic2)
+
 
 # ** lambda
+
 
 def mul_10(num: int) -> int:
     return num * 10
