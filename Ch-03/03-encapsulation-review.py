@@ -30,24 +30,20 @@ class Robot:
     def how_many(cls):
         return f"We have {cls.population} robots."
 
-    @staticmethod
-    def are_you_robot():
-        print("yes!!")
-
 
 droid1 = Robot("R2-D2")
 droid1.say_hi()
 
-Robot.how_many()
+print(Robot.how_many())
 
 droid2 = Robot("amamov")
 droid2.say_hi()
-Robot.how_many()
+print(Robot.how_many())
 
 print("\nRobots can do some work here.\n")
 print("Robots have finished their work. So let's destroy them.")
 droid1.die()
-Robot.how_many()
+print(Robot.how_many())
 droid2.die()
 
 # //* dir() : 모든 속성 값을 알 수 있다.

@@ -32,10 +32,6 @@ class Robot:
     def how_many(cls):
         return f"We have {cls.population} robots."
 
-    @staticmethod
-    def are_you_robot():
-        print("yes!!")
-
 
 droid1 = Robot("R2-D2")
 droid1.say_hi()
