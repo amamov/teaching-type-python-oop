@@ -6,14 +6,12 @@ class Robot:
     Author : Amaco
     """
 
-    # Class Variable 클래스 변수 ()
     population = 0
 
-    def __init__(self, name):  # 생성자
-        self.name = name  # Instanse Variable
+    def __init__(self, name):
+        self.name = name
         Robot.population += 1
 
-    # Instance Method
     def die(self):
         print(f"{self.name} is being destroyed!")
         Robot.population -= 1
@@ -25,24 +23,22 @@ class Robot:
     def say_hi(self):
         print(f"Greetings, my masters call me {self.name}.")
 
+    def cal_add(self, a, b):
+        return a + b
+
     @classmethod
     def how_many(cls):
         return f"We have {cls.population} robots."
 
-    # 매직 메서드
-    def __str__(self):
-        # str 함수가 호출되었을 때 호출된다. (객체를 문자열화 하는데에 초점이 맞춰져 있다.)
-        return "<Robot Class >"
-
-    def __call__(self):
-        # 인스턴스가 호출가능하도록 해준다. (callable)
-        return "hello world"
+    @staticmethod
+    def are_you_robot():
+        print("yes!!")
 
 
 droid1 = Robot("R2-D2")
 droid1.say_hi()
 
-Robot.how_many()  # Call class method
+Robot.how_many()
 
 droid2 = Robot("amamov")
 droid2.say_hi()
