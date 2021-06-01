@@ -35,28 +35,19 @@ class Robot:
         print("yes!!")
 
     def __str__(self):
-        return "<Robot Class >"
+        return f"{self.name} robot!!"
 
     def __call__(self):
-        return "hello world"
+        print("call!")
+        return f"{self.name} call!!"
 
 
 droid1 = Robot("R2-D2")
 droid1.say_hi()
 
-Robot.how_many()
+print(dir(droid1))
 
-droid2 = Robot("amamov")
-droid2.say_hi()
-Robot.how_many()
+print(droid1)  # <__main__.Robot object at 0x7fde1c742110> -> R2-D2 robot!!
 
-print("\nRobots can do some work here.\n")
-print("Robots have finished their work. So let's destroy them.")
-droid1.die()
-Robot.how_many()
-droid2.die()
 
-# //* dir() : 모든 속성 값을 알 수 있다.
-# //* __dict__ : 네임스페이스를 확인할 수 있다.
-# //* __doc__ : class의 주석을 확인한다.
-# //* __class__ : 어떤 클래스로 만들어진 인스턴스인지 확인할 수 있다.
+droid1()

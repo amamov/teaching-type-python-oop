@@ -1,30 +1,62 @@
-# [self의 이해]
-# ** self는 인스턴스 객체이다!!
-# ** 클래스 안에 있는 self의 주소와 만들어진 인스턴스의 주소는 같다! 즉, self는 인스턴스 그 자체이다!
+class Robot:
 
+    """
+    [Robot Class]
+    Date : ??:??:??
+    Author : Amaco
+    """
 
-class SelfTest:
+    population = 0
 
-    # * 클래스 변수
-    name = "amamov"
+    def __init__(self, name):
+        self.name = name
+        Robot.population += 1
 
-    def __init__(self, x):
-        self.x = x  # * 인스턴스 변수
+    def die(self):
+        print(f"{self.name} is being destroyed!")
+        Robot.population -= 1
+        if Robot.population == 0:
+            print(f"{self.name} was the last one.")
+        else:
+            print(f"There are still {Robot.population} robots working.")
 
-    # * 클래스 메서드
+    def say_hi(self):
+        print(f"Greetings, my masters call me {self.name}.")
+
+    def cal_add(self, a, b):
+        return a + b
+
     @classmethod
-    def function1(cls):
-        print(f"cls : {cls}")
-        print("function 1 called !")
+    def how_many(cls):
+        return f"We have {cls.population} robots."
 
-    # *인스턴스 메서드
-    def function2(self):
-        print(f"self : {self}")
-        print("class안의 self의 주소:", id(self))
-        print("function 2 called !")
+    @staticmethod
+    def are_you_robot():
+        print("yes!!")
+
+    def __str__(self):
+        return "<Robot Class >"
+
+    def __call__(self):
+        return "hello world"
 
 
-test_instance = SelfTest(17)
+droid1 = Robot("R2-D2")
+droid1.say_hi()
 
+Robot.how_many()
 
-print("인스턴스의 주소:", id(test_instance))
+droid2 = Robot("amamov")
+droid2.say_hi()
+Robot.how_many()
+
+print("\nRobots can do some work here.\n")
+print("Robots have finished their work. So let's destroy them.")
+droid1.die()
+Robot.how_many()
+droid2.die()
+
+# //* dir() : 모든 속성 값을 알 수 있다.
+# //* __dict__ : 네임스페이스를 확인할 수 있다.
+# //* __doc__ : class의 주석을 확인한다.
+# //* __class__ : 어떤 클래스로 만들어진 인스턴스인지 확인할 수 있다.
