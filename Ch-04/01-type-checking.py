@@ -14,5 +14,5 @@ class Typer:
 
 typer = Typer()
 
-xxx = "12312"
+xxx: str = "12312"
 typer.int_type_check(xxx)
