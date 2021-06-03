@@ -15,7 +15,7 @@
 """
 
 
-class Robot:
+class Robot(object):
 
     """
     Robot Class
@@ -48,49 +48,38 @@ class Siri(Robot):
 
 siri = Siri("iphone8")
 
-siri.say_hi()
-siri.call_me()
 
-# ** mro 사용
+print(
+    Siri.mro()
+)  # * [<class '__main__.Siri'>, <class '__main__.Robot'>, <class 'object'>]
 
-print(Siri.mro())
+print(Robot.mro())  # * [<class '__main__.Robot'>, <class 'object'>]
+
+print(object)
+
+print(dir(object))
+
+print(object.__name__)
 
 print(int.mro())
+print(int.__init__(8.9))
+print(int(8.9))
 
 
-# ** Python의 모든 클래스는 object 클레스를 상속한다. : 모든 것은 객체이다.
-
-
-# object 생략 가능
-class Hello(object):
+class A:
     pass
 
 
-# ** 다중상속
-
-
-class X:
+class B:
     pass
 
 
-class Y:
+class C:
     pass
 
 
-class Z:
+class D(A, B, C):
     pass
 
 
-class A(X, Y):
-    pass
-
-
-class B(Y, Z):
-    pass
-
-
-class M(B, A, Z):
-    pass
-
-
-print(M.mro())
+print(D.mro())

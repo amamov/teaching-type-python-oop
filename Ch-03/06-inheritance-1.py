@@ -18,7 +18,9 @@
 class Robot:
 
     """
-    Robot Class
+    [Robot Class]
+    Date : ??:??:??
+    Author : Amaco
     """
 
     population = 0
@@ -26,6 +28,14 @@ class Robot:
     def __init__(self, name):
         self.name = name
         Robot.population += 1
+
+    def die(self):
+        print(f"{self.name} is being destroyed!")
+        Robot.population -= 1
+        if Robot.population == 0:
+            print(f"{self.name} was the last one.")
+        else:
+            print(f"There are still {Robot.population} robots working.")
 
     def say_hi(self):
         print(f"Greetings, my masters call me {self.name}.")
@@ -37,9 +47,26 @@ class Robot:
     def how_many(cls):
         return f"We have {cls.population} robots."
 
+    @staticmethod
+    def are_you_robot():
+        print("yes!!")
 
-# ** 상속
+    def __str__(self):
+        return f"{self.name} robot!!"
+
+    def __call__(self):
+        print("call!")
+        return f"{self.name} call!!"
 
 
 class Siri(Robot):
     pass
+
+
+siri = Siri("iphone8")
+
+print(siri)
+
+siri.are_you_robot()
+
+print(siri.cal_add(17, 19))

@@ -1,11 +1,14 @@
-# 인스턴스 변수 값을 사용해서 적절한 값으로 보내고 싶을 때
-# 인스턴스 변수 값에 대한 유효성 검사 및 수정
+"""
+#* [property]
+#* 인스턴스 변수 값을 사용해서 적절한 값으로 보내고 싶을 때
+#* 인스턴스 변수 값에 대한 유효성 검사 및 수정
+"""
+
+
 class Robot:
 
     """
-    [Robot Class]
-    Date : ??:??:??
-    Author : Amaco
+    Robot Class
     """
 
     __population = 0
@@ -25,21 +28,12 @@ class Robot:
 
     @age.setter
     def age(self, new_age):
-        if new_age < 0:
-            raise ValueError("age > 0")
-        else:
+        if new_age - self.__age == 1:
             self.__age = new_age
+        else:
+            raise ValueError()
 
-    def die(self):
-        if not Robot.__is_empty():
-            print(f"{self.__name} is being destroyed!")
-            Robot.__population -= 1
-            if Robot.__population == 0:
-                print(f"{self.__name} was the last one.")
-            else:
-                print(f"There are still {Robot.__population} robots working.")
-
-    def say_hi(self):
+    def __say_hi(self):
         print(f"Greetings, my masters call me {self.__name}.")
 
     def cal_add(self, a, b):
@@ -49,38 +43,18 @@ class Robot:
     def how_many(cls):
         return f"We have {cls.__population} robots."
 
-    @staticmethod
-    def are_you_robot():
-        print("yes!!")
-
-    @classmethod
-    def __is_empty(cls):
-        if cls.__population == 0:
-            print("is empty robot")
-            return True
-        else:
-            return False
-
-    def __str__(self):
-        return "<Robot Class >"
-
-    def __call__(self):
-        return "hello world"
-
 
 droid = Robot("R2-D2", 2)
 
 
-# droid.__name # error
+print(droid.age)
 
-# droid.__age = 2 # error
+# droid.age = 7
 
-droid.age = 2
+droid.age += 1
+
 
 print(droid.age)
 
-# droid.age = -1 # error
 
 print(droid.name)
-
-# droid.name = "hello"
