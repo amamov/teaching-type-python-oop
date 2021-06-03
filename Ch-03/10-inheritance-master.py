@@ -50,3 +50,47 @@ siri = Siri("iphone8")
 
 siri.say_hi()
 siri.call_me()
+
+# ** mro 사용
+
+print(Siri.mro())
+
+print(int.mro())
+
+
+# ** Python의 모든 클래스는 object 클레스를 상속한다. : 모든 것은 객체이다.
+
+
+# object 생략 가능
+class Hello(object):
+    pass
+
+
+# ** 다중상속
+
+
+class X:
+    pass
+
+
+class Y:
+    pass
+
+
+class Z:
+    pass
+
+
+class A(X, Y):
+    pass
+
+
+class B(Y, Z):
+    pass
+
+
+class M(B, A, Z):
+    pass
+
+
+print(M.mro())
