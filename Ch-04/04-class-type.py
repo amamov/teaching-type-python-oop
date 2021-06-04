@@ -1,14 +1,21 @@
 # class types
+
+
 class Hello:
     def world(self) -> int:
-        return 2
+        return 7
 
 
-def foo(hello: Hello) -> None:
-    print(hello.world())
+class World:
+    pass
 
 
 hello: Hello = Hello()
+world: World = World()
 
 
-foo(hello)
+def foo(ins: Hello) -> int:
+    return ins.world()
+
+
+print(foo(world))
