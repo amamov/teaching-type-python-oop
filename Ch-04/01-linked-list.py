@@ -1,26 +1,25 @@
-# https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class
 
-from __future__ import annotations
-from typing import TypeVar, Optional
+"""
+* 스택(stack)이란 쌓아 올린다는 것을 의미한다. 
+* 따라서 스택 자료구조라는 것은 책을 쌓는 것처럼 차곡차곡 쌓아 올린 형태의 자료구조를 말한다. 
 
-T = TypeVar("T")
+* [Node Class]
+* - item
+* - pointer : 다음 node를 가리키므로 다음 node를 저장하고 아무것도 가리키지 않으면 None을 저장한다.
 
+* [LinkedList]
+* - head : 가장 첫 번째 node, node가 없으면 None을 저장한다.
+* - length : int 타입, 현재 노드(데이터)의 개수를 의미한다.
 
-class Node:
-    __slots__ = ("item", "pointer")
+* [Stack] : LinkedList를 상속받는다.
+* - push(item) : Stack 자료구조에 item을 받아 노드로 만든 다음 밀어넣는다.
+* - pop() : Stack 자료구조에서 마지막 node를 제거하고 해당 Item을 반환한다.
+"""
 
-    def __init__(self, item: T, pointer: Optional[Node]):
-        self.item = item
-        self.pointer = pointer
+저희가 지금까지 배운 객체지향 프로그래밍과 타이핑 기법을 활용하여 대표적인 자료구조중 하나인 Stack을 구현해볼거에요
 
+Stack은 컴퓨터 공학에서 정말 중요하고 많이 나오는 자료구조중 하나입니다.
 
-class LinkedList:
-    def __init__(self):
-        self.head: Optional[Node] = None
+먼저 Stack에 대해서 설명드리겠습니다.
 
-    @property
-    def length(self) -> int:
-        if self.head is None:
-            return 0
-        else:
-            return 0
+스택의 정의, item 설명, 파이프 설명, 스택의 특성을 보여드리면서 설명
