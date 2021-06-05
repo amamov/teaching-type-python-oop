@@ -1,7 +1,7 @@
 """
-#* [property]
-#* 인스턴스 변수 값을 사용해서 적절한 값으로 보내고 싶을 때
-#* 인스턴스 변수 값에 대한 유효성 검사 및 수정
+#* polymorphism
+#* 여러 형태를 가질 수 있도록 한다. 즉, 객체를 부품화할 수 있도록 한다.
+#* 같은 형태의 코드가 다른 동작을 하도록 하는 것
 """
 
 
@@ -44,17 +44,16 @@ class Robot:
         return f"We have {cls.__population} robots."
 
 
-droid = Robot("R2-D2", 2)
+class Siri(Robot):
+    def say_apple(self):
+        print("hello my apple")
 
 
-print(droid.age)
-
-# droid.age = 7
-
-droid.age += 1
+class SiriKo(Robot):
+    def say_apple(self):
+        print("안녕하세요")
 
 
-print(droid.age)
-
-
-print(droid.name)
+class Bixby(Robot):
+    def say_samsung(self):
+        print("안녕하세요ㅕ")

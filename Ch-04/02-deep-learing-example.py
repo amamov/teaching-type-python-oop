@@ -12,6 +12,7 @@ from torch import nn, optim, cuda
 from torch.utils import data
 from torchvision import datasets, transforms
 import torch
+import torchvision
 
 
 class VGG(nn.Module):
@@ -199,9 +200,6 @@ class Machine:
 
         m, s = divmod(time.time() - epoch_start, 60)
         print(f"Total time : {m:.0f}m {s: .0f}s \nModel was trained on {self.device}!")
-
-
-import torchvision
 
 
 class ResNetMachine(Machine):
