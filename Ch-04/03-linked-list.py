@@ -4,8 +4,6 @@ T = TypeVar("T")
 
 
 class Node(Generic[T]):
-    __slots__ = ("item", "pointer")
-
     def __init__(self, item: T, pointer: Optional["Node"] = None):
         self.item = item
         self.pointer = pointer
@@ -52,8 +50,7 @@ class Stack(Generic[T], LinkedList[T]):
     def pop(self) -> T:
         if self.head is None:
             raise ValueError("stack is empty")
-        else:
-            cur_node = self.head
+        cur_node = self.head
         if cur_node.pointer is None:
             self.head = None
             return cur_node.item
@@ -64,22 +61,52 @@ class Stack(Generic[T], LinkedList[T]):
         return result.item
 
 
+class Queue(Generic[T], LinkedList[T]):
+    def enqueue(self, item: T) -> None:
+        new_node: Node[T] = Node[T](item=item)
+        if self.head is None:
+            self.head = new_node
+            return
+        cur_node = self.head
+        while cur_node.pointer is not None:
+            cur_node = cur_node.pointer
+        cur_node.pointer = new_node
+
+    def dequeue(self) -> T:
+        if self.head is None:
+            raise ValueError("queue is empty")
+        cur_node = self.head
+        if cur_node.pointer is None:
+            self.head = None
+            return cur_node.item
+        result = cur_node.item
+        self.head = cur_node.pointer
+        return result
+
+
 if __name__ == "__main__":
-    stack = Stack[int]()
+    stack = Stack()
     stack.push(12)
-    stack.push(17)
+    stack.push(2)
     stack.push(3)
     stack.push(4)
-    stack.push(5)
-    # stack.push([123])
-    # stack.push("hello world1!")
 
-    stack.pop()
-    stack.pop()
-    stack.pop()
-    stack.pop()
-    # stack.pop()
-    stack.pop()
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
 
     print(stack.length)
     print(stack)
+
+    queue = Queue[int]()
+    queue.enqueue(12)
+    queue.enqueue(1)
+    queue.enqueue(13)
+    queue.enqueue(16)
+
+    # queue.dequeue()
+    # queue.dequeue()
+
+    print(queue)
+    print(queue.length)

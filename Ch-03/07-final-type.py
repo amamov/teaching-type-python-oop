@@ -1,4 +1,6 @@
 from typing_extensions import Final
 
+RATE: Final = "dasdsa"
 
-RATE: Final = 200
+
+# RATE = 300
