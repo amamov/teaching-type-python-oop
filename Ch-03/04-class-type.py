@@ -23,12 +23,17 @@ print(foo(hello))
 
 # * class type 보충
 
+from typing import Optional
 
-class Wow:
-    def __init__(self, data: "Hello"):
+
+class Node:
+    def __init__(self, data: int, node: Optional["Node"] = None):
         self.data = data
+        self.node = node
 
 
-wow = Wow(hello)
+node2 = Node(12)
 
-print(wow.data)
+node1 = Node(27, node2)
+
+node0 = Node(30, node1)

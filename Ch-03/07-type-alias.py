@@ -1,28 +1,37 @@
 # https://mypy.readthedocs.io/en/stable/kinds_of_types.html#type-aliases
 
-from typing import Union, List, Tuple
+from typing import Union, List, Tuple, Dict, Optional
 from typing_extensions import TypedDict
 
 # * type alias
 
-X = Union[int, float, bool, Union[List[str], Tuple[int]]]
+Value = Union[
+    int, bool, Union[List[str], List[int], Tuple[int, ...]], Optional[Dict[str, float]]
+]
 
-xxx: X = 12
+X = int
+
+x: X = 8
+
+value: Value = 17
 
 
-def test(x: X) -> X:
-    return x
+def cal(v: Value) -> Value:
+    # ddmasda
+    return v
 
-
-test(xxx)
 
 # * dict alias
+
+
+ddd: Dict[str, Union[str, int]] = {"hello": "world", "world": "wow!!", "hee": 17}
 
 
 class Point(TypedDict):
     x: int
     y: float
     z: str
+    hello: int
 
 
-point: Point = {"x": 8, "y": 8.4, "z": "12"}
+point: Point = {"x": 8, "y": 8.4, "z": "hello", "hello": 12}

@@ -49,7 +49,7 @@ class Stack(Generic[T], LinkedList[T]):
             cur_node = cur_node.pointer
         cur_node.pointer = new_node
 
-    def pop(self):
+    def pop(self) -> T:
         if self.head is None:
             raise ValueError("stack is empty")
         else:
@@ -61,7 +61,7 @@ class Stack(Generic[T], LinkedList[T]):
             cur_node = cur_node.pointer
         result = cur_node.pointer
         cur_node.pointer = None
-        return result
+        return result.item
 
 
 if __name__ == "__main__":
