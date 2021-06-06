@@ -1,17 +1,12 @@
-# https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class
-
-from __future__ import annotations
-from typing import TypeVar, Optional
-
-T = TypeVar("T")
+from typing import Optional
 
 
 class Node:
     __slots__ = ("item", "pointer")
 
-    def __init__(self, item: T, pointer: Optional[Node]):
+    def __init__(self, item, pointer: Optional["Node"]):
         self.item = item
-        self.pointer = pointer
+        self.pointer: Optional["Node"] = pointer
 
 
 class LinkedList:

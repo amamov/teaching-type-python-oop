@@ -1,22 +1,19 @@
-# https://stackoverflow.com/questions/33533148/how-do-i-type-hint-a-method-with-the-type-of-the-enclosing-class
-
-from __future__ import annotations
-from typing import TypeVar, Optional, List, Union, Generic
+from typing import Optional, Generic, TypeVar
 
 T = TypeVar("T")
 
 
-class Node:
+class Node(Generic[T]):
     __slots__ = ("item", "pointer")
 
-    def __init__(self, item: T, pointer: Optional[Node] = None):
+    def __init__(self, item: T, pointer: Optional["Node"] = None):
         self.item = item
         self.pointer = pointer
 
 
-class LinkedList:
+class LinkedList(Generic[T]):
     def __init__(self):
-        self.head: Optional[Node] = None
+        self.head: Optional[Node[T]] = None
 
     @property
     def length(self) -> int:
@@ -41,9 +38,9 @@ class LinkedList:
         return result
 
 
-class Stack(LinkedList):
-    def push(self, item) -> None:
-        new_node: Node = Node(item=item)
+class Stack(Generic[T], LinkedList[T]):
+    def push(self, item: T) -> None:
+        new_node: Node[T] = Node[T](item=item)
         if self.head is None:
             self.head = new_node
             return
@@ -55,24 +52,34 @@ class Stack(LinkedList):
     def pop(self):
         if self.head is None:
             raise ValueError("stack is empty")
-        cur_node = self.head
+        else:
+            cur_node = self.head
+        if cur_node.pointer is None:
+            self.head = None
+            return cur_node.item
         while cur_node.pointer.pointer is not None:
             cur_node = cur_node.pointer
-        result: Node = cur_node.pointer
+        result = cur_node.pointer
         cur_node.pointer = None
         return result
 
 
 if __name__ == "__main__":
-    stack = Stack()
+    stack = Stack[int]()
     stack.push(12)
     stack.push(17)
     stack.push(3)
     stack.push(4)
     stack.push(5)
-    stack.push([123])
-    # stack.push("123")
+    # stack.push([123])
+    # stack.push("hello world1!")
 
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    stack.pop()
     # stack.pop()
+    stack.pop()
+
     print(stack.length)
     print(stack)

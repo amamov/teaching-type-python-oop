@@ -25,6 +25,4 @@ class Point(TypedDict):
     z: str
 
 
-print(isinstance(True, int))
-
-point: Point = {"x": True, "y": 8, "z": "12"}
+point: Point = {"x": 8, "y": 8.4, "z": "12"}
