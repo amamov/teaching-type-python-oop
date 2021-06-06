@@ -85,7 +85,7 @@ class Queue(Generic[T], LinkedList[T]):
 
 
 if __name__ == "__main__":
-    stack = Stack()
+    stack = Stack[int]()
     stack.push(12)
     stack.push(2)
     stack.push(3)
@@ -105,8 +105,11 @@ if __name__ == "__main__":
     queue.enqueue(13)
     queue.enqueue(16)
 
-    # queue.dequeue()
-    # queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
+    queue.dequeue()
 
     print(queue)
     print(queue.length)

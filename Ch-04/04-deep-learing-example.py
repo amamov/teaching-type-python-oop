@@ -56,7 +56,7 @@ class Machine:
     BASE_DIR = "/content/mai_drive/MyDrive/deep_learning"
     DATASETS_DIR = f"{BASE_DIR}/datasets"
 
-    def __init__(self, batch_size=64, epoch_size=1):
+    def __init__(self, batch_size: int = 64, epoch_size: int = 1):
         self.batch_size = batch_size
         self.epoch_size = epoch_size
         self.device = "cuda" if cuda.is_available() else "cpu"
