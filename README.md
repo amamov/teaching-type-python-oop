@@ -1,7 +1,7 @@
 
 # [타입 파이썬!](https://www.inflearn.com/course/%ED%83%80%EC%9E%85-%ED%8C%8C%EC%9D%B4%EC%8D%AC/)
 
-![img](./images/home.png) 
+> [강의 바로가기](https://www.inflearn.com/course/%ED%83%80%EC%9E%85-%ED%8C%8C%EC%9D%B4%EC%8D%AC/)
 
 ---
 
