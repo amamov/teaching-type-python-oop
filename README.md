@@ -1,7 +1,11 @@
 
 ## [타입 파이썬! class에 대한 올바른 사용법과 객체지향 프로그래밍 - 객체지향 사고법](https://www.inflearn.com/course/%ED%83%80%EC%9E%85-%ED%8C%8C%EC%9D%B4%EC%8D%AC/)
 
+<img src="https://cdn.inflearn.com/public/courses/327162/cover/b3936561-912c-453c-8729-2ee27aa64882/typeoop-eng.png" />
+
 > [강의 바로가기](https://www.inflearn.com/course/%ED%83%80%EC%9E%85-%ED%8C%8C%EC%9D%B4%EC%8D%AC/)
+
+
 
 ---
 
