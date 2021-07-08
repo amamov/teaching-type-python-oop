@@ -11,13 +11,27 @@
 
 # Python 설치
 
-## Python Set Up - for Mac OS
+## Python Set Up
 
 - _*Python과 pip을 설치하는 방법 외에는 Window OS와 설치 방법은 같습니다..*_
 
 - [python 설치 for Window OS](https://www.python.org/)
 
- <br>
+### MAC - 공식 사이트에서 다운
+
+1. [python 설치](https://www.python.org/)
+
+2. MacOS 같은 경우 기본적으로 python 2.7 버전이 내장되어 있다. 따라서 설치 후에 별칭을 붙여주어야 한다.
+
+3. `$ vi ~/.zshrc`으로 설정 파일을 열고 `i`로 편집이 가능하도록 한 후에 맨 아래에 다음 명령어 두 줄을 추가한다.
+   - `alias python=python3`
+   - `alias pip=pip3`
+
+4. `:!wq`으로 저장하고 나간다.
+
+5. 터미널을 껏다가 다시 연다.
+
+### MAC - homebrew 사용
 
 1. homebrew 설치
 
