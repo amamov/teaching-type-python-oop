@@ -50,8 +50,9 @@ def repeat(obj):
     return inner
 
 
-use_slot_time = timeit.repeat(repeat(ws), number=99999)
-no_slot_time = timeit.repeat(repeat(wos), number=99999)
+use_slot_time = timeit.repeat(repeat(ws), number=9999999)
+no_slot_time = timeit.repeat(repeat(wos), number=9999999)
+
 
 print("use slot : ", min(use_slot_time))
 print("no slot : ", min(no_slot_time))
