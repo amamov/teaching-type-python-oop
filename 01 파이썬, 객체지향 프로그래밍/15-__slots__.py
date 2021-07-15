@@ -5,6 +5,8 @@
 # __dict__를 통해 관리되는 객체의 성능을 최적화한다. -> 다수의 객체 생성시 메모리 사용 공간 대폭 감소한다.
 """
 
+import timeit
+
 
 class WithoutSlotClass:
     def __init__(self, name, age):
@@ -32,9 +34,6 @@ class WithSlotClass:
 ws = WithSlotClass("amamov", 12)
 
 print(ws.__slots__)
-
-
-import timeit
 
 
 # * 메모리 사용량 비교
