@@ -6,8 +6,6 @@ class Robot:
     Author : Amaco
     """
 
-    population = 0
-
     def __init__(self, name):
         self.name = name
         Robot.population += 1
