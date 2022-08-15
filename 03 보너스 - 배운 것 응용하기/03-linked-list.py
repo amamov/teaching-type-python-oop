@@ -47,18 +47,20 @@ class Stack(Generic[T], LinkedList[T]):
             cur_node = cur_node.pointer
         cur_node.pointer = new_node
 
-    def pop(self) -> T:
+    def pop(self) -> Optional[T]:
         if self.head is None:
-            raise ValueError("stack is empty")
-        cur_node = self.head
+            raise ValueError("Stack is empty")
+        cur_node: Node[T] = self.head
         if cur_node.pointer is None:
             self.head = None
             return cur_node.item
-        while cur_node.pointer.pointer is not None:
-            cur_node = cur_node.pointer
-        result = cur_node.pointer
-        cur_node.pointer = None
-        return result.item
+        while cur_node.pointer is not None:
+            if cur_node.pointer.pointer is not None:
+                cur_node = cur_node.pointer
+                continue
+            result = cur_node.pointer
+            cur_node.pointer = None
+            return result.item if result is not None else None
 
 
 class Queue(Generic[T], LinkedList[T]):
